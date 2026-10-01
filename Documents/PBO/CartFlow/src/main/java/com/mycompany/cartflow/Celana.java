@@ -6,8 +6,7 @@ public class Celana extends Barang {
     private int ukuranCelana;
     private String model;
 
-    public Celana(String nama, int harga, int jumlah,
-                  int ukuranCelana, String model) {
+    public Celana(String nama, int harga, int jumlah, int ukuranCelana, String model) {
         super(nama, harga, jumlah);
         setUkuranCelana(ukuranCelana);
         setModel(model);

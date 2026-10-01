@@ -6,8 +6,7 @@ public class Baju extends Barang {
     private String ukuran;
     private String warna;
 
-    public Baju(String nama, int harga, int jumlah,
-                String ukuran, String warna) {
+    public Baju(String nama, int harga, int jumlah, String ukuran, String warna) {
         super(nama, harga, jumlah);
         setUkuran(ukuran);
         setWarna(warna);

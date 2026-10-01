@@ -3,10 +3,7 @@ package com.mycompany.cartflow;
 import java.util.Scanner;
 
 public class CartFlow {
-    public static void cariBarang(
-            String nama,
-            Barang[] daftarBarang,
-            int jumlahBarang) {
+    public static void cariBarang(String nama,Barang[] daftarBarang,int jumlahBarang) {
         System.out.println("\n==== Cari Barang Berdasarkan Nama ====");
         boolean ditemukan = false;
         for (int i = 0; i < jumlahBarang; i++) {
@@ -24,10 +21,7 @@ public class CartFlow {
     }
 
     // Method Overloading: cariBarang berdasarkan HARGA
-    public static void cariBarang(
-            int harga,
-            Barang[] daftarBarang,
-            int jumlahBarang) {
+    public static void cariBarang(int harga,Barang[] daftarBarang,int jumlahBarang) {
         System.out.println("\n==== Cari Barang Berdasarkan Harga ====");
         boolean ditemukan = false;
         for (int i = 0; i < jumlahBarang; i++) {

@@ -6,8 +6,7 @@ public class Sepatu extends Barang {
     private int ukuranSepatu;
     private String merek;
 
-    public Sepatu(String nama, int harga, int jumlah,
-                  int ukuranSepatu, String merek) {
+    public Sepatu(String nama, int harga, int jumlah, int ukuranSepatu, String merek) {
         super(nama, harga, jumlah);
         setUkuranSepatu(ukuranSepatu);
         setMerek(merek);

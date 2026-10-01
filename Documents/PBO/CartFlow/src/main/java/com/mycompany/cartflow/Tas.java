@@ -6,8 +6,7 @@ public class Tas extends Barang {
     private String bahan;
     private int kapasitasLiter;
 
-    public Tas(String nama, int harga, int jumlah,
-               String bahan, int kapasitasLiter) {
+    public Tas(String nama, int harga, int jumlah, String bahan, int kapasitasLiter) {
         super(nama, harga, jumlah);
         setBahan(bahan);
         setKapasitasLiter(kapasitasLiter);
