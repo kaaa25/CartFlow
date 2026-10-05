@@ -36,10 +36,10 @@ public class Sepatu extends Barang {
     @Override
     public void tampilkanInfoBarang() {
         super.tampilkanInfoBarang();
-        System.out.printf(
-            "  -> Kategori: Sepatu | Ukuran: %d | Merek: %s%n",
-            this.ukuranSepatu,
-            this.merek
-        );
+        System.out.printf("  -> Kategori: Sepatu | Ukuran: %d | Merek: %s%n", this.ukuranSepatu, this.merek);
+    }
+    @Override
+    public void prosesLayanan(){
+        System.out.println("[Layanan Sepatu] " + getNama() + " dimasukkan ke dalam kotak sepatu eksklusif.");
     }
 }

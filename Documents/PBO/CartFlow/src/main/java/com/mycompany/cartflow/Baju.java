@@ -34,10 +34,10 @@ public class Baju extends Barang {
     @Override
     public void tampilkanInfoBarang() {
         super.tampilkanInfoBarang();
-        System.out.printf(
-            "  -> Kategori: Baju | Ukuran: %s | Warna: %s%n",
-            this.ukuran,
-            this.warna
-        );
+        System.out.printf("  -> Kategori: Baju | Ukuran: %s | Warna: %s%n", this.ukuran, this.warna);
+    }
+    @Override
+    public void prosesLayanan(){
+        System.out.println("[Layanan Baju] " + getNama() + " siap dilipat dan dikemas dalam plastik pembungkus.");
     }
 }

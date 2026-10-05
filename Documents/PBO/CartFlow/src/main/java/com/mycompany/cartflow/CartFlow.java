@@ -35,6 +35,12 @@ public class CartFlow {
             System.out.println("Barang tidak ditemukan.");
         }
     }
+    public static void simulasiProsesBarang(Barang item){
+        System.out.println("\n>>> [MEMPROSES ITEM POLIMORFIS] <<<");
+        System.out.println("Memproses item: " + item.getNama() + " (Tipe Asli: " + item.getClass().getSimpleName() + ")");
+        
+        item.prosesLayanan();
+    }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -53,8 +59,9 @@ public class CartFlow {
             System.out.println("3. Lihat Jumlah Barang");
             System.out.println("4. Lihat Total Harga");
             System.out.println("5. Cari Barang");
-            System.out.println("6. Keluar");
-            System.out.print("Pilih Menu (1-6): ");
+            System.out.println("6. Simulasi Layanan Barang )Dynamic Binding");
+            System.out.println("7. Keluar");
+            System.out.print("Pilih Menu: ");
             int pilihan = scanner.nextInt();
             scanner.nextLine();
             switch (pilihan) {
@@ -77,7 +84,8 @@ public class CartFlow {
                         System.out.println("2. Celana");
                         System.out.println("3. Sepatu");
                         System.out.println("4. Tas");
-                        System.out.print("Pilihan: ");
+                        System.out.println("5. Aksesoris");
+                        System.out.print("Pilihan (1-5): ");
 
                         int tipe = scanner.nextInt();
                         scanner.nextLine();
@@ -89,20 +97,10 @@ public class CartFlow {
                             System.out.print("Warna: ");
                             String warna = scanner.nextLine();
 
-                            daftarBarang[jumlahBarang] =
-                                new Baju(
-                                    namaBarang,
-                                    hargaBarang,
-                                    jumlah,
-                                    ukuran,
-                                    warna
-                                );
+                            daftarBarang[jumlahBarang] = new Baju(namaBarang, hargaBarang, jumlah, ukuran, warna);
 
                             jumlahBarang++;
-
-                            System.out.println(
-                                "Sukses! Baju berhasil ditambahkan."
-                            );
+                            System.out.println("Sukses! Baju berhasil ditambahkan.");
                         } else if (tipe == 2) {
                             System.out.print("Ukuran Celana: ");
                             int ukuranCelana = scanner.nextInt();
@@ -111,20 +109,11 @@ public class CartFlow {
                             System.out.print("Model Celana: ");
                             String model = scanner.nextLine();
 
-                            daftarBarang[jumlahBarang] =
-                                new Celana(
-                                    namaBarang,
-                                    hargaBarang,
-                                    jumlah,
-                                    ukuranCelana,
-                                    model
-                                );
+                            daftarBarang[jumlahBarang] = new Celana(namaBarang, hargaBarang, jumlah, ukuranCelana, model);
 
                             jumlahBarang++;
 
-                            System.out.println(
-                                "Sukses! Celana berhasil ditambahkan."
-                            );
+                            System.out.println("Sukses! Celana berhasil ditambahkan.");
                         } else if (tipe == 3) {
 
                             System.out.print("Ukuran Sepatu: ");
@@ -134,65 +123,44 @@ public class CartFlow {
                             System.out.print("Merek Sepatu: ");
                             String merek = scanner.nextLine();
 
-                            daftarBarang[jumlahBarang] =
-                                new Sepatu(
-                                    namaBarang,
-                                    hargaBarang,
-                                    jumlah,
-                                    ukuranSepatu,
-                                    merek
-                                );
+                            daftarBarang[jumlahBarang] = new Sepatu(namaBarang, hargaBarang,jumlah, ukuranSepatu, merek);
 
                             jumlahBarang++;
-
-                            System.out.println(
-                                "Sukses! Sepatu berhasil ditambahkan."
-                            );
+                            System.out.println("Sukses! Sepatu berhasil ditambahkan.");
                         } else if (tipe == 4) {
                             System.out.print("Bahan Tas: ");
                             String bahan = scanner.nextLine();
 
-                            System.out.print(
-                                "Kapasitas Tas (Liter): "
-                            );
+                            System.out.print("Kapasitas Tas (Liter): ");
                             int kapasitas = scanner.nextInt();
                             scanner.nextLine();
 
-                            daftarBarang[jumlahBarang] =
-                                new Tas(
-                                    namaBarang,
-                                    hargaBarang,
-                                    jumlah,
-                                    bahan,
-                                    kapasitas
-                                );
-
+                            daftarBarang[jumlahBarang] = new Tas(namaBarang, hargaBarang,jumlah, bahan, kapasitas);
+                            
                             jumlahBarang++;
-
-                            System.out.println(
-                                "Sukses! Tas berhasil ditambahkan."
-                            );
+                            System.out.println("Sukses! Tas berhasil ditambahkan.");
+                            
+                        }else if (tipe == 5){
+                            System.out.println("Jenis Aksesoris (Kalung/Kacamata/Topi): ");
+                            String jenis = scanner.nextLine();
+                            
+                            daftarBarang[jumlahBarang] = new Aksesoris(namaBarang, hargaBarang, jumlah, jenis);
+                            
+                            jumlahBarang++;
+                            System.out.println("Sukses! Aksesoris berhasil ditambahkan.");
                         } else {
-                            System.out.println(
-                                "Kategori tidak valid."
-                            );
+                            System.out.println("Kategori tidak valid.");
                         }
-                    } else {
-                        System.out.println(
-                            "Maaf, kapasitas keranjang penuh."
-                        );
+                    } else{
+                        System.out.println("Maaf, kapasitas keranjang penuh.");  
                     }
                     break;
 
                 case 2:
-                    System.out.println(
-                        "\n.....Daftar Barang Fashion....."
-                    );
+                    System.out.println("\n.....Daftar Barang Fashion.....");
                     if (jumlahBarang == 0) {
 
-                        System.out.println(
-                            "Belum ada barang yang tersimpan."
-                        );
+                        System.out.println("Belum ada barang yang tersimpan.");
                     } else {
                         for (int i = 0; i < jumlahBarang; i++) {
                             System.out.println("\n" + (i + 1) + ".");
@@ -203,33 +171,21 @@ public class CartFlow {
 
                 case 3:
                     System.out.println("\n.....Jumlah Barang.....");
-                    System.out.println(
-                        "Jumlah barang dalam keranjang: "
-                        + jumlahBarang
-                    );
-                    System.out.println(
-                        "Total objek Barang pernah dibuat: "
-                        + Barang.totalBarangBerhasilDibuat
-                    );
+                    System.out.println("Jumlah barang dalam keranjang: " + jumlahBarang);
+                    System.out.println("Total objek Barang pernah dibuat: " + Barang.totalBarangBerhasilDibuat);
                     break;
 
                 case 4:
-                    System.out.println(
-                        "\n.....Total Harga Barang....."
-                    );
+                    System.out.println("\n.....Total Harga Seluruh Barang.....");
                     if (jumlahBarang == 0) {
-                        System.out.println(
-                            "Belum ada barang."
-                        );
+                        System.out.println("Belum ada barang.");
                     } else {
                         int totalHarga = 0;
                         for (int i = 0; i < jumlahBarang; i++) {
                             totalHarga +=
                                 daftarBarang[i].getTotalHarga();
                         }
-                        System.out.println(
-                            "Total Harga: Rp" + totalHarga
-                        );
+                        System.out.println("Total Harga: Rp" + totalHarga);
                     }
                     break;
 
@@ -243,46 +199,37 @@ public class CartFlow {
                     scanner.nextLine();
 
                     if (pilihanCari == 1) {
-                        System.out.print(
-                            "Masukkan Nama Barang: "
-                        );
+                        System.out.print("Masukkan Nama Barang: ");
                         String namaCari = scanner.nextLine();
-                        cariBarang(
-                            namaCari,
-                            daftarBarang,
-                            jumlahBarang
-                        );
+                        cariBarang(namaCari, daftarBarang, jumlahBarang);
                     } else if (pilihanCari == 2) {
-                        System.out.print(
-                            "Masukkan Harga Barang: "
-                        );
+                        System.out.print("Masukkan Harga Barang: ");
                         int hargaCari = scanner.nextInt();
                         scanner.nextLine();
 
-                        cariBarang(
-                            hargaCari,
-                            daftarBarang,
-                            jumlahBarang
-                        );
+                        cariBarang(hargaCari,daftarBarang,jumlahBarang);
                     } else {
-                        System.out.println(
-                            "Pilihan pencarian tidak valid."
-                        );
+                        System.out.println("Pilihan pencarian tidak valid.");
                     }
                     break;
 
                 case 6:
-                    System.out.println(
-                        "\nTerima kasih telah menggunakan "
-                        + "CartFlow Fashion Store!"
-                    );
+                    if (jumlahBarang == 0){
+                        System.out.println("Keranjang masih kosong.");
+                    } else {
+                        System.out.println("n=== Simulasi Pengemasan / Layanan Barang ===");
+                        for (int i = 0; i < jumlahBarang; i++){
+                            simulasiProsesBarang(daftarBarang[i]);
+                        }
+                    }
+                    break;
+                    
+                case 7:
+                    System.out.println("\nTerima kasih telah menggunakan " + "CartFlow Fashion Store!");
                     isRunning = false;
                     break;
                 default:
-                    System.out.println(
-                        "Pilihan tidak valid, "
-                        + "silakan masukkan angka 1-6."
-                    );
+                    System.out.println("Pilihan tidak valid, " + "silakan masukkan angka 1-7.");
                     break;
             }
         }

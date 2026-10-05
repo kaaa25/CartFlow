@@ -36,10 +36,10 @@ public class Tas extends Barang {
     @Override
     public void tampilkanInfoBarang() {
         super.tampilkanInfoBarang();
-        System.out.printf(
-            "  -> Kategori: Tas | Bahan: %s | Kapasitas: %d Liter%n",
-            this.bahan,
-            this.kapasitasLiter
-        );
+        System.out.printf("  -> Kategori: Tas | Bahan: %s | Kapasitas: %d Liter%n", this.bahan, this.kapasitasLiter);
+    }
+    @Override
+    public void prosesLayanan(){
+        System.out.println("[Layanan Tas] " + getNama() + "dilapisi dustbag pelindung debu.");
     }
 }

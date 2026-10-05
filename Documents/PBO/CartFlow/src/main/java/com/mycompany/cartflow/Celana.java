@@ -36,10 +36,10 @@ public class Celana extends Barang {
     @Override
     public void tampilkanInfoBarang() {
         super.tampilkanInfoBarang();
-        System.out.printf(
-            "  -> Kategori: Celana | Ukuran: %d | Model: %s%n",
-            this.ukuranCelana,
-            this.model
-        );
+        System.out.printf("  -> Kategori: Celana | Ukuran: %d | Model: %s%n", this.ukuranCelana, this.model);
+    }
+    @Override
+    public void prosesLayanan(){
+        System.out.println("[Layanan Celana] " + getNama() + " dipasang hanger khusus celana.");
     }
 }
