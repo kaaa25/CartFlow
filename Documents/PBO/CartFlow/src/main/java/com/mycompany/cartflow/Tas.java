@@ -1,7 +1,7 @@
 package com.mycompany.cartflow;
 
 // Subclass 4 (Tas)
-public class Tas extends Barang {
+public class Tas extends Barang implements DapatDikemas{
 
     private String bahan;
     private int kapasitasLiter;
@@ -41,5 +41,9 @@ public class Tas extends Barang {
     @Override
     public void prosesLayanan(){
         System.out.println("[Layanan Tas] " + getNama() + "dilapisi dustbag pelindung debu.");
+    }
+    @Override
+    public void kemasBarang(){
+        System.out.println("Tas sedang dikemaas.");
     }
 }

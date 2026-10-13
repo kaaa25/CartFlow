@@ -1,7 +1,7 @@
 package com.mycompany.cartflow;
 
 // Subclass 5 (Aksesoris)
-public class Aksesoris extends Barang {
+public class Aksesoris extends Barang implements DapatDikemas{
 
     private String jenisAksesoris;
 
@@ -28,5 +28,9 @@ public class Aksesoris extends Barang {
     @Override
     public void prosesLayanan(){
         System.out.println("[Layanan Aksesoris] " + getNama() + " dimasukkan ke dalam kantong beludru cantik.");
+    }
+    @Override
+    public void kemasBarang(){
+        System.out.println("Aksesoris sedang dikemaas.");
     }
 }
