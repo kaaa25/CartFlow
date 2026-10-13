@@ -1,7 +1,7 @@
 package com.mycompany.cartflow;
 
 // Superclass
-public class Barang {
+public abstract class Barang {
 
     private String nama;
     private int harga;
@@ -60,7 +60,5 @@ public class Barang {
     public void tampilkanInfoBarang() {
         System.out.printf("Nama: %-20s | Harga: Rp%-10d | Jumlah: %-3d | Total: Rp%d%n", this.nama, this.harga, this.jumlah, getTotalHarga());
     }
-    public void prosesLayanan(){
-        System.out.println("Memproses barang umum: " + getNama());
-    }
+    public abstract void prosesLayanan();
 }
