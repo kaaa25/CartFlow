@@ -1,4 +1,4 @@
-package com.mycompany.cartflow;
+package com.mycompany;
 
 public interface DapatDikemas {
     void kemasBarang();

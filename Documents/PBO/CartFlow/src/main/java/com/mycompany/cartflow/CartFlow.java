@@ -1,6 +1,7 @@
 package com.mycompany.cartflow;
 
 import java.util.Scanner;
+import com.mycompany.DapatDikemas;
 
 public class CartFlow {
     public static void cariBarang(String nama,Barang[] daftarBarang,int jumlahBarang) {
@@ -214,16 +215,22 @@ public class CartFlow {
                     break;
 
                 case 6:
-                    if (jumlahBarang == 0){
-                        System.out.println("Keranjang masih kosong.");
-                    } else {
-                        System.out.println("n=== Simulasi Pengemasan / Layanan Barang ===");
-                        for (int i = 0; i < jumlahBarang; i++){
-                            simulasiProsesBarang(daftarBarang[i]);
-                        }
-                    }
-                    break;
-                    
+                for (int i = 0; i < jumlahBarang; i++) {
+                    Barang item = daftarBarang[i];
+                    item.prosesLayanan();
+
+                if (item instanceof DapatDikemas) {
+                    DapatDikemas kemasan = (DapatDikemas) item;
+                    kemasan.kemasBarang();
+                }
+
+                if (item instanceof BisaDiberiLabel) {
+                BisaDiberiLabel label = (BisaDiberiLabel) item;
+                label.beriLabel();
+                }
+            }
+            break;
+
                 case 7:
                     System.out.println("\nTerima kasih telah menggunakan " + "CartFlow Fashion Store!");
                     isRunning = false;

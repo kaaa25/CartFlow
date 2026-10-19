@@ -1,7 +1,11 @@
 package com.mycompany.cartflow;
 
 // Subclass 5 (Aksesoris)
-public class Aksesoris extends Barang implements DapatDikemas{
+
+import com.mycompany.DapatDikemas;
+import com.mycompany.cartflow.BisaDiberiLabel;
+
+public class Aksesoris extends Barang implements DapatDikemas, BisaDiberiLabel{
 
     private String jenisAksesoris;
 
@@ -32,5 +36,9 @@ public class Aksesoris extends Barang implements DapatDikemas{
     @Override
     public void kemasBarang(){
         System.out.println("Aksesoris sedang dikemaas.");
+    }
+    @Override
+    public void beriLabel(){
+        System.out.println("Label kategori Aksesoris dipasang pada " + getNama() + ".");
     }
 }

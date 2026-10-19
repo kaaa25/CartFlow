@@ -1,7 +1,11 @@
 package com.mycompany.cartflow;
 
 // Subclass 2 (Celana)
-public class Celana extends Barang implements DapatDikemas{
+
+import com.mycompany.DapatDikemas;
+import com.mycompany.cartflow.BisaDiberiLabel;
+
+public class Celana extends Barang implements DapatDikemas, BisaDiberiLabel{
 
     private int ukuranCelana;
     private String model;
@@ -45,5 +49,9 @@ public class Celana extends Barang implements DapatDikemas{
     @Override
     public void kemasBarang(){
         System.out.println("Celana sedang dikemaas.");
+    }
+    @Override
+    public void beriLabel(){
+        System.out.println("Label kategori Celana dipasang pada " + getNama() + ".");
     }
 }
